@@ -1,0 +1,298 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #f4f4f4;
+}
+
+/* Header Section */
+header {
+  background-color: #0078D7; /* CareLink blue */
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+/* Logo */
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 1px;
+}
+
+/* Search Bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.search-bar input {
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 20px 0 0 20px;
+  outline: none;
+  width: 300px;
+}
+
+.search-bar button {
+  padding: 5px 10px;
+  background-color: white;
+  color: #0078D7;
+  border: 1px solid #0078D7;
+  border-radius: 0 20px 20px 0;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background-color: #005bb5;
+  color: white;
+}
+
+/* Navigation Links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links li {
+  margin: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #FFD700; /* Golden highlight on hover */
+  font-weight: bold;
+}
+
+/* Main Content */
+main {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+main h2 {
+  font-size: 36px;
+  color: #333;
+}
+
+main p {
+  font-size: 18px;
+  color: #555;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+/* Footer Section */
+footer {
+  background-color: #333;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  font-size: 14px;
+}
+
+footer p {
+  margin: 5px 0;
+}
+
+footer a {
+  color: #FFD700;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .search-bar {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-links a {
+    margin: 5px 0;
+  }
+
+  footer {
+    font-size: 12px;
+  }
+}
+
+/* Carousel Section */
+.carousel {
+  width: 100%;  /* Ensures the carousel takes the full width of its container */
+  height: 300px;  /* Fixed height for the carousel */
+  overflow: hidden;  /* Hides anything that overflows the carousel container */
+  position: relative;  /* Necessary for absolute positioning of images if needed */
+}
+
+.carousel-images {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel img {
+  width: 100%;  /* Makes the image take up the full width of the carousel */
+  height:300px; /*Ensures the image height is 100% of the carousel height */
+  object-fit: cover;  /* Makes sure the image covers the area of the carousel without distortion */
+}
+
+.carousel-item {
+  position: relative;
+  width: 100vw; /* Each item takes the full viewport width */
+}
+
+.carousel-item img {
+  width: 100%; /* Full width of the container */
+  height: auto;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px;
+  border-radius: 10px;
+}
+.carousel-caption h3 {
+  font-size: 24px;
+  margin: 10px 0;
+}
+
+.carousel-caption p {
+  font-size: 16px;
+}
+
+.carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
+}
+
+/* Horizontal Line Styling */
+.line-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.styled-line {
+  width: 80%;  /* Adjust width as needed */
+  border: 0;
+  border-top: 2px solid #0078D7; /* CareLink Blue */
+  margin: 0;
+}
+
+/* Auth Section */
+.auth-section {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #fff;
+  max-width: 400px;
+  margin: 50px auto;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.auth-section h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  text-align: left;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.auth-form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 100%;
+  font-size: 16px;
+}
+
+.auth-form input:focus {
+  border-color: #0078D7; /* CareLink blue */
+  outline: none;
+}
+
+.auth-btn {
+  padding: 10px;
+  background-color: #0078D7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.auth-btn:hover {
+  background-color: #005bb5;
+}
+
+p a {
+  color: #0078D7;
+}
+
+p a:hover {
+  text-decoration: underline;
+}

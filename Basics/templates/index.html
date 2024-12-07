@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Care Link - Home</title>
+  
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            text-align: center;
+            display: block;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        .container {
+            padding: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .feature-box {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .feature-box h3 {
+            margin-bottom: 10px;
+        }
+        .feature-box p {
+            font-size: 14px;
+            color: #555;
+        }
+        .feature-box a {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .feature-box a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <header style="position: relative; padding: 10px;">
+        <h1>Welcome to Care Link</h1>
+        <p>Your health is our priority. Manage appointments, view reports, and more.</p>
+        <button onclick="window.location.href='login and signup.html';"
+                style="position: absolute; top: 10px; right: 10px; padding: 10px 15px; background-color: black; color: white; border: none; border-radius: 5px; cursor: pointer;">
+            Login/Signup
+        </button>
+    </header>
+    
+    
+    
+
+<nav>
+    <a href="/bookappointment">Book an Appointment</a>
+    <a href="/patientmedication">View Reports</a>
+    <a href="#doctors">Doctor Details</a>
+    <a href="#video-consultation">Video Consultation</a>
+    <a href="#medicines">Order Medicines</a>
+    <a href="#caretaker">Book care taker</a>
+    <a href="/loginandsignup">Login/Signup</a>
+</nav>
+
+<div class="container">
+    <h2>Quick Links</h2>
+    <div class="feature-grid">
+        <div class="feature-box">
+            <h3>Book an Appointment</h3>
+            <p>Schedule your doctor appointments online and choose available time slots.</p>
+            <a href="/bookappointment">Book Now</a>
+        </div>
+        
+        <div class="feature-box">
+            <h3>View Reports</h3>
+            <p>Check your past and present medical reports.</p>
+            <a href="/pastreports">View Reports</a>
+        </div>
+        <div class="feature-box">
+            <h3>Doctor Details</h3>
+            <p>Find doctor profiles, specialties, and available time slots.</p>
+            <a href="/doctortimeslot">View Doctors</a>
+        </div>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-box">
+            <h3>Video Consultation</h3>
+            <p>Take your consultation online via video call.</p>
+            <a href="/howtojoiningvideocall">Consult Now</a>
+        </div>
+        <div class="feature-box">
+            <h3>Save Reports</h3>
+            <p>Order the prescribed medicines directly from the doctor.</p>
+            <a href="/phonenumber">Save Reports</a>
+        </div>
+        <div class="feature-box">
+            <h3>Book a Caretaker</h3>
+            <p>Find trusted caretakers for home care and assistance.</p>
+            <a href="/bookcaretaker">Book Now</a>
+        </div>
+    </div>
+</div>
+
+<footer style="background-color: #333; color: white; text-align: center; padding: 20px 0;">
+    <p>&copy; 2024 Care Link. All Rights Reserved.</p>
+</footer>
+
+</body>

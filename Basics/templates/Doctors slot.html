@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Welcome to Our Company</h1>
+    <p>Your trusted partner for innovation and excellence.</p>
+  </header>
+  
+  <div class="content">
+    <section id="about-us">
+      <h2>About Us</h2>
+      <p>We are a team of passionate individuals committed to providing innovative solutions. Our goal is to empower businesses to achieve their potential through advanced technologies and services.</p>
+      <p>With years of experience in the industry, we pride ourselves on delivering quality, trust, and excellence. Our team consists of dedicated professionals who constantly strive for improvement and excellence in everything they do.</p>
+      <p>Our core values include:</p>
+      <ul>
+        <li>Innovation</li>
+        <li>Customer Satisfaction</li>
+        <li>Integrity</li>
+        <li>Collaboration</li>
+      </ul>
+      <p>Join us on this journey of growth and success!</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2024 Our Company. All rights reserved.</p>
+  </footer>
+</body>
+</html>
+CSS (style.css):
+css
+Copy code
+/* General body and page styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+header {
+  background-color: #0044cc;
+  color: white;
+  text-align: center;
+  padding: 50px 0;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 36px;
+}
+
+header p {
+  font-size: 18px;
+}
+
+.content {
+  padding: 20px;
+  background-color: #fff;
+}
+
+#about-us {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: opacity 1s, transform 1s;
+}
+
+#about-us.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+ul {
+  list-style-type: square;
+  margin-left: 20px;
+}
+
+footer {
+  background-color: #222;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Scroll behavior for smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Style for mobile devices */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 28px;
+  }
+
+  header p {
+    font-size: 16px;
+  }
+}

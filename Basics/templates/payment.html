@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<!-- saved from url=(0116)http://127.0.0.1:5501/how%20to%20pay%20the%20fee%20and%20types%20of%20modes%20how%20the%20fee%20can%20be%20oaid.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pay Fee - Patient</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        select, input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .payment-info {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        /* Stripe Button */
+        .stripe-button {
+            background-color: #6772e5;
+            color: white;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        
+        .stripe-button:hover {
+            background-color: #5e62d7;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pay Your Fee</h1>
+
+        <!-- Form for Fee Payment -->
+        <form id="paymentForm" action="http://127.0.0.1:5501/submit-payment" method="POST">
+            <!-- Fee Type Selection -->
+            <label for="feeType">Choose Fee Type</label>
+            <select id="feeType" name="feeType" required="">
+                <option value="general">General Care - $50</option>
+                <option value="medical">Medical Care - $100</option>
+                <option value="consultation">Consultation - $75</option>
+            </select>
+
+            <!-- Payment Mode Selection -->
+            <label for="paymentMode">Choose Payment Method</label>
+            <select id="paymentMode" name="paymentMode" required="">
+                <option value="stripe">Credit/Debit Card (Stripe)</option>
+                <option value="paypal">PayPal</option>
+            </select>
+
+            <!-- Submit Button -->
+            <input type="submit" value="Proceed to Payment">
+        </form>
+
+        <!-- Payment Info Section (Stripe) -->
+        <div class="payment-info">
+            <h3>Payment Instructions</h3>
+            <p>Choose your preferred payment method and click the button to proceed. For Credit/Debit cards, we support Stripe.</p>
+        </div>
+
+    </div>
+
+    <!-- Stripe Payment Script (you need to replace with your own API Key) -->
+    <script src="./Pay Fee - Patient_files/saved_resource"></script>
+
+    <script>
+        // Example payment form submission
+        document.getElementById("paymentForm").addEventListener("submit", function (e) {
+            e.preventDefault();
+
+            var feeType = document.getElementById("feeType").value;
+            var paymentMode = document.getElementById("paymentMode").value;
+
+            // If Stripe is selected, initiate Stripe payment
+            if (paymentMode === "stripe") {
+                processStripePayment(feeType);
+            } else if (paymentMode === "paypal") {
+                alert("You have chosen PayPal. Please follow PayPal's payment steps.");
+                // You can integrate PayPal API here if needed
+            }
+        });
+
+        function processStripePayment(feeType) {
+            // Use Stripe's JavaScript library to handle payments
+            var stripe = Stripe('your-publishable-key-here');  // Replace with your actual Stripe public key
+            var paymentIntentClientSecret = "client_secret_from_backend"; // You should obtain this from your backend
+
+            stripe.confirmCardPayment(paymentIntentClientSecret, {
+                payment_method: {
+                    card: document.getElementById('cardElement'),  // A Stripe Element
+                    billing_details: {
+                        name: "Patient Name", // You can add a form to collect the patient's name
+                    }
+                }
+            }).then(function(result) {
+                if (result.error) {
+                    // Handle errors here
+                    alert(result.error.message);
+                } else {
+                    // Successful payment
+                    alert('Payment successful!');
+                    // Redirect to a confirmation page or success page
+                    window.location.href = "/payment-success";
+                }
+            });
+        }
+    </script>
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+
+<iframe name="__privateStripeMetricsController1730" frameborder="0" allowtransparency="true" scrolling="no" role="presentation" allow="payment *" src="./Pay Fee - Patient_files/m-outer-3437aaddcdf6922d623e172c2d6f9278.html" aria-hidden="true" tabindex="-1" style="border: none !important; margin: 0px !important; padding: 0px !important; width: 1px !important; min-width: 100% !important; overflow: hidden !important; display: block !important; visibility: hidden !important; position: fixed !important; height: 1px !important; pointer-events: none !important; user-select: none !important;"></iframe></body></html>

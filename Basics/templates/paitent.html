@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Appointment - CareLink</title>
+  <link rel="stylesheet" href="styles.css">  <!-- Optional for custom CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"> <!-- Optional Bootstrap CSS -->
+
+  <style>
+    /* General styles for the page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 20px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      font-size: 18px;
+      font-weight: bold;
+    }
+
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    .form-group textarea {
+      resize: vertical;
+      height: 100px;
+    }
+
+    .form-group button {
+      width: 100%;
+      padding: 15px;
+      background-color: #0078D7; /* CareLink blue */
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .form-group button:hover {
+      background-color: #005bb5;
+    }
+
+    .form-group button:active {
+      background-color: #003f8e;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Appointment Booking Form -->
+  <div class="container">
+    <h2>Book an Appointment</h2>
+
+    <form id="appointmentForm">
+      <!-- Patient

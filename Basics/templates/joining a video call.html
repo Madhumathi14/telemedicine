@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Caretaker</title>
+    <style>
+        /* Basic reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body style */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        /* Container style */
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Responsive design */
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            label {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Book a Caretaker</h1>
+        <form id="caretakerForm">
+            <!-- Patient Details -->
+            <div>
+                <label for="patientName">Full Name</label>
+                <input type="text" id="patientName" name="patientName" required placeholder="Enter your full name">
+
+                <label for="patientEmail">Email Address</label>
+                <input type="email" id="patientEmail" name="patientEmail" required placeholder="Enter your email">
+
+                <label for="patientPhone">Phone Number</label>
+                <input type="tel" id="patientPhone" name="patientPhone" required placeholder="Enter your phone number">
+
+                <label for="preferredDate">Preferred Date</label>
+                <input type="date" id="preferredDate" name="preferredDate" required>
+
+                <label for="careType">Type of Care</label>
+                <select id="careType" name="careType" required>
+                    <option value="general">General Care</option>
+                    <option value="medical">Medical Care</option>
+                    <option value="companionship">Companionship</option>
+                </select>
+
+                <label for="message">Additional Information</label>
+                <textarea id="message" name="message" rows="4" placeholder="Provide any additional details about the care needed..."></textarea>
+
+                <input type="submit" value="Book Caretaker">
+            </div>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('caretakerForm').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            
+            // Get the form data
+            const formData = {
+                patientName: document.getElementById('patientName').value,
+                patientEmail: document.getElementById('patientEmail').value,
+                patientPhone: document.getElementById('patientPhone').value,
+                preferredDate: document.getElementById('preferredDate').value,
+                careType: document.getElementById('careType').value,
+                message: document.getElementById('message').value
+            };
+
+            try {
+                // Send data to backend (replace the URL with your actual API endpoint)
+                const response = await fetch('http://your-backend-api-url/book-caretaker', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(formData)
+                });
+
+                const result = await response.json();
+                if (response.ok) {
+                    alert('Caretaker booked successfully! We will contact you shortly.');
+                } else {
+                    alert('Failed to book caretaker: ' + result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('There was an error while booking the caretaker.');
+            }
+        });
+    </script>
+
+</body>
+</html>

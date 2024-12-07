@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join Video Conference</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 1.2em;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        .video-call-container {
+            position: relative;
+            height: 80vh;
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #333;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Join Video Conference</h1>
+
+        <!-- Form to input meeting number and password -->
+        <form id="joinForm">
+            <label for="meetingNumber">Enter Meeting Number</label>
+            <input type="text" id="meetingNumber" name="meetingNumber" required>
+
+            <label for="password">Enter Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <input type="submit" value="Join Meeting">
+        </form>
+
+        <div class="video-call-container" id="videoCallContainer">
+            <iframe id="jitsiFrame" width="100%" height="100%" frameborder="0" allow="camera; microphone; fullscreen; display-capture; autoplay;"></iframe>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("joinForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Get meeting number and password from form inputs
+            var meetingNumber = document.getElementById("meetingNumber").value;
+            var password = document.getElementById("password").value;
+
+            // Construct the Jitsi meeting URL
+            var jitsiURL = `https://meet.jit.si/${meetingNumber}?password=${password}&config.startWithVideoMuted=false`;
+
+            // Embed the Jitsi meeting in the iframe
+            var iframe = document.getElementById("jitsiFrame");
+            iframe.src = jitsiURL;
+
+            // Show the video call container
+            document.getElementById("videoCallContainer").style.display = "block";
+        });
+    </script>
+
+</body>
+</html>
